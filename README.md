@@ -2,7 +2,7 @@
 
 Adapted version of SERVAL for use with HPF.
 
-Scripts are included to reproduce RV figure from Stefansson et al. 2023 (https://arxiv.org/abs/2303.13321).
+Scripts are included to a) extract the RVs, and b) reproduce the RV figure from Stefansson et al. 2023 (Fig 1; https://arxiv.org/abs/2303.13321).
 
 
 # Installation
@@ -50,7 +50,7 @@ cd scripts/
 
 Which runs the following command:
 ```
-python ../src/hpfserval.py --npass 1 --inputfolder ../input_data/lhs_3154/ --driftcorrect --foldername results_example --vref 9.609 LHS_3154
+python ../src/hpfserval.py --npass 1 --inputfolder ../input_data/lhs_3154/ --foldername results_example --vref 9.609 LHS_3154
 ```
 
 # Regenerating figures from Stefansson et al. 2023
@@ -61,6 +61,6 @@ There are three steps:
 
 # Citations
 If you use this code, kindly cite the following papers:
-a) Zechmeister: https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..12Z/abstract
-b) Stefansson et al. 2020: https://ui.adsabs.harvard.edu/abs/2020AJ....159..100S/abstract
-c) Stefansson et al. 2023: https://arxiv.org/abs/2303.13321
+- a) Zechmeister: https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..12Z/abstract
+- b) Stefansson et al. 2020: https://ui.adsabs.harvard.edu/abs/2020AJ....159..100S/abstract
+- c) Stefansson et al. 2023: https://arxiv.org/abs/2303.13321
