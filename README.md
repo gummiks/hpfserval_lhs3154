@@ -61,6 +61,6 @@ There are three steps:
 
 # Citations
 If you use this code, kindly cite the following papers:
-- a) Zechmeister: https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..12Z/abstract
+- a) Zechmeister et al. 2018: https://ui.adsabs.harvard.edu/abs/2018A%26A...609A..12Z/abstract
 - b) Stefansson et al. 2020: https://ui.adsabs.harvard.edu/abs/2020AJ....159..100S/abstract
 - c) Stefansson et al. 2023: https://arxiv.org/abs/2303.13321
