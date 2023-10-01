@@ -1,0 +1,25 @@
+# Physical parameters of the transiting system:
+#P_p1                  Uniform            0.5,10.
+P_p1                  Uniform            3,4.
+t0_p1                 Uniform            2458872.010796685,2458876.010796685
+#a_p1                  Jeffreys           1.0,90.0
+#r1_p1                 Uniform           0.0,1.0
+#r2_p1                 Uniform           0.0,1.0
+#p_p1                 Uniform           0.0,0.1
+#b_p1                 Uniform           0.0,1.0
+ecc_p1                Uniform           0.0,0.9
+omega_p1              Uniform           0.0,360
+K_p1                  Uniform           0,100
+# Photometric priors for TESS (including GP) photometry:
+#q1_TESS                 Uniform           0.0,1.0
+#q2_TESS                 Uniform           0.0,1.0
+#mdilution_TESS          Uniform           0.0,1.0
+#sigma_w_TESS            Jeffreys          1.,5000
+#mflux_TESS              Normal            0.0,0.1
+#GP_B_TESS               Jeffreys          1e-6,1
+#GP_C_TESS               Jeffreys          1e-3,1e3
+#GP_L_TESS               Jeffreys          1,1e3
+#GP_Prot_TESS            Jeffreys          0.001,1e3
+# RV priors HPF:
+mu_HPF                Uniform           -200,200
+sigma_w_rv_HPF        Jeffreys          0.1,200
