@@ -59,10 +59,8 @@ The `LHS_3154_unbin.csv` file contains the RV per extracted spectrum and associa
 The LHS_3154_bin.csv` file contains RVs binned per HET track (see Stefansson et al. 2023 for a discusison on that).
 
 # Regenerating figures from Stefansson et al. 2023
-There are three steps:
-- a) Download the full LHS 3154 spectra here: (insert Zenodo link here with 1D spectra).
-- b) Run the script in the scripts/ directory. This creates the output files in the website/ directory.
-- c) Run the ipython notebook in the notebook/ directory to regenerate Figure 1 in Stefansson et al. 2023.
+- Run the ipython notebook in the notebook/ directory to regenerate Figure 1 in Stefansson et al. 2023. 
+- This can be done independently from running the RV extraction.
 
 # Citations
 If you use this code, kindly cite the following papers:
