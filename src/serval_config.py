@@ -48,19 +48,14 @@ inst_hpf = {"iomax"    : 28,
             "pmin"     : 100,  
             "pmax"     : 1950, 
             "npix"     : 2048,
-            # OLD wavelength solution:
             "path_wavelength_solution_sci" : path_libwave + os.sep + "20181012" + os.sep + "LFC_wavecal_scifiber_v2.fits", 
             "path_wavelength_solution_sky" : path_libwave + os.sep + "20181012" + os.sep + "LFC_wavecal_skyfiber_v2.fits", 
-            ###################
-            # Main flat options are:
             "path_flat_noflat": path_libflats + os.sep +  "20180804" + os.sep + "alphabright_fcu_noflat.fits",
             "path_flat_sept18":  path_libflats + os.sep +  "20180918" + os.sep + "alphabright_fcu_sept18_deblazed.fits",
             "path_flat_may25": path_libflats + os.sep + "20180808" + os.sep + "alphabright_fcu_may25_july21_deblazed.fits",
-            ###################
-            # Masks
-            "path_telluricmask" : path_libmasks + os.sep + "telluric_mask" + os.sep + "telfit_telmask_conv17_thres0.995_with17area.dat",#new telfit one
+            "path_telluricmask" : path_libmasks + os.sep + "telluric_mask" + os.sep + "telfit_telmask_conv17_thres0.995_with17area.dat",
             "path_skymask"      : path_libmasks + os.sep + "sky_mask" + os.sep + "HPF_SkyEmmissionLineWavlMask_broadened_11111_Compressed.txt",
-            "path_stellarmask"  : path_libmasks + os.sep + "star_mask" + os.sep + "gj699_stellarmask_LINET_01_20180816_1.53ms_shifted_withdeeplineo17.txt", # Fainter Targets 20210607
+            "path_stellarmask"  : path_libmasks + os.sep + "star_mask" + os.sep + "gj699_stellarmask_LINET_01_20180816_1.53ms_shifted_withdeeplineo17.txt", 
             "snmin"    : 10,
             "snmax"    : 700,
             "good_orders" : [4, 5, 6, 14, 15, 16, 17, 18] 
@@ -89,8 +84,8 @@ print('PMAX',pmax)
 # GENERAL SETTINGS
 badpixel_downweight = 10000.
 orders = np.arange(iomax)[oset]
-ptmin = pmin - 40 # Oversize template
-ptmax = pmax + 40
+ptmin = pmin - 50 # Oversize template
+ptmax = pmax + 50
 ntpix = ptmax - ptmin
 pixx = np.arange(ntpix)
 pixxx = np.arange((ntpix-1)*4.+1) / 4.

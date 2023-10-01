@@ -1,5 +1,7 @@
 import os
+import math
 import astropy.time
+import astropy.table
 import matplotlib.pyplot as plt
 import matplotlib
 import numpy as np
@@ -359,3 +361,77 @@ def runcmd(cmd, verbose = True, *args, **kwargs):
     if verbose:
         print(std_out.strip(), std_err)
     pass
+
+def read_juliet_posterior(filename):
+    """
+    df = astropylib.juliet_help.read_juliet_posterior('../JULIET_RUNS/20190707_rvs_only_snr25_gp_ecc_nothing_intransit/output/posteriors.dat')
+    """
+    df = astropy.table.Table.read(filename,format='ascii').to_pandas()
+    df.columns = ['labels','medvals','plus','minus']
+    df["latex"] = [latex_mean_low_up(df.medvals.values[i],df.minus.values[i],df.plus.values[i]) for i in range(len(df))]
+    df = df.sort_values('labels')
+    return df
+
+def latex_mean_low_up(mean,low,up,sig=2):
+    #latexstr = "%.10f_{-%.10f}^{+%.10f}" % (mean,low,up)
+    f_low, round_to1 = round_sig(low,return_round_to=True,sig=sig)
+    f_up,  round_to2 = round_sig(up,return_round_to=True,sig=sig)
+    if np.isnan(low) or np.isnan(up):
+        f_mean = mean
+    else:
+        round_to = max(round_to1,round_to2)
+        f_mean = round(mean, round_to)
+    latexstr = "$%s_{-%s}^{+%s}$" % (f_mean,f_low,f_up)
+    return latexstr
+
+def round_sig(x, sig=2,return_round_to=False):
+    """
+    Roundint to *sig* significant digits
+    
+    INPUT:
+    x - number to round
+    sig - significant digits
+    """
+    if (np.isnan(x)) & (return_round_to==False):
+        return 0.
+    if (np.isnan(x)) & (return_round_to==True):
+        return 0., 0
+    if (x==0.) & (return_round_to==False):
+        return 0.
+    if (x==0.) & (return_round_to==True):
+        return 0., 0
+    round_to = sig-int(math.floor(np.log10(abs(x))))-1
+    num = round(x, round_to)
+    if np.abs(num) > 1e-4:
+        num = str(num).ljust(round_to+2,"0") # pad with 0 if needed
+    else:
+        num = "{0:.{width}f}".format(num,width=round_to-1)
+    if return_round_to==False:
+        return num
+        #return round(x, round_to)
+    else:
+        return num, round_to
+        #return round(x,round_to), round_to
+
+def get_rv_curve(times_jd,P,tc,e,omega,K):
+    """
+    A function to calculate an RV curve as a function of time
+    
+    INPUT:
+        omega: in degrees
+
+
+    """
+    t_peri = radvel.orbit.timetrans_to_timeperi(tc=tc,per=P,ecc=e,omega=np.deg2rad(omega))
+    rvs = radvel.kepler.rv_drive(times_jd,[P,t_peri,e,np.deg2rad(omega),K])
+    return rvs
+
+def jd2iso(times):
+    return np.array([str(astropy.time.Time(time,format="jd",scale="utc").datetime) for time in times])
+
+def alias_from_1day(P):
+    """
+    1/(1-1/i)
+    alias_from_1day(17.05)
+    """
+    return 1./(1.-1./P)
