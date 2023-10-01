@@ -40,7 +40,7 @@ and then rerunning the command.
 - colorlog
 - barycorrpy
 
-# Getting Started
+# Getting Started - Running LHS 3154 RVs from Stefansson et al. 2023
 Try running the minimal example script of:
 
 ```
@@ -50,8 +50,9 @@ cd scripts/
 
 Which runs the following command:
 ```
-python ../src/hpfserval.py --npass 1 --inputfolder ../input_data/lhs_3154/ --foldername results_example --vref 9.609 LHS_3154
+python ../src/hpfserval.py --npass 1 --inputfolder ../input_data/lhs_3154_spectra/ --foldername results --vref 9.609 LHS_3154
 ```
+This extracts the RVs and activity indicators from the 137 HPF spectra that are available in the `lhs_3154_spectra/` directory.
 
 # Regenerating figures from Stefansson et al. 2023
 There are three steps:
