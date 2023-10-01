@@ -54,6 +54,10 @@ python ../src/hpfserval.py --npass 1 --inputfolder ../input_data/lhs_3154_spectr
 ```
 This extracts the RVs and activity indicators from the 137 HPF spectra that are available in the `lhs_3154_spectra/` directory.
 
+Once the script has finished running, results will be saved in the `website/uploading_RC/data/targets/LHS_3154/results/` directory.
+The `LHS_3154_unbin.csv` file contains the RV per extracted spectrum and associated uncertainties (in m/s) and activitiy indicators.
+The LHS_3154_bin.csv` file contains RVs binned per HET track (see Stefansson et al. 2023 for a discusison on that).
+
 # Regenerating figures from Stefansson et al. 2023
 There are three steps:
 - a) Download the full LHS 3154 spectra here: (insert Zenodo link here with 1D spectra).
